@@ -60,6 +60,15 @@
 
       let guessCount = 1;
       let resetButton;
+      guessField.focus();
+      function setGameOver() {
+        guessField.disabled = true;
+        guessSubmit.disabled = true;
+        resetButton = document.createElement("button");
+        resetButton.textContent = "Start new game";
+        document.body.append(resetButton);
+        resetButton.addEventListener("click", resetGame);
+      }
 
       function checkGuess() {
         const userGuess = Number(guessField.value);
